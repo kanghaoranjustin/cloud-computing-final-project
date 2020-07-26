@@ -4,9 +4,8 @@ import numpy as np
 from collections import namedtuple
 from mxnet.gluon.data.vision import transforms
 from mxnet.contrib.onnx.onnx2mx.import_model import import_model
-import os
 
-
+plt.switch_backend('Agg')
 
 
 #mx.test_utils.download('https://s3.amazonaws.com/onnx-model-zoo/synset.txt')
@@ -66,13 +65,11 @@ mod.bind(for_training=False, data_shapes=[('data', (1,3,224,224))],
 mod.set_params(arg_params, aux_params, allow_missing=True, allow_extra=True)
 
 
-mx.test_utils.download('https://www.trafalgar.com/real-word/wp-content/uploads/sites/3/2019/10/giant-panda-750x400.jpg')
+
 
 def get_image_class(image_link):
     mx.test_utils.download(image_link)
     img_path = image_link.split("/")[-1]
-    return predict(img_path)
+    return predict(img_path), img_path
 
-
-print(get_image_class('https://www.trafalgar.com/real-word/wp-content/uploads/sites/3/2019/10/giant-panda-750x400.jpg'))
 
