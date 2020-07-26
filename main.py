@@ -13,7 +13,7 @@ def homepage():
 def result():
     image_link = request.form["image_link"]
     image_class, img_path = get_image_class(image_link)
-    return "<h1>Your Image Class is:</h1><br>" + image_class + "<br>" + "<img src='"+ img_path +"'>"
+    return "<h1>Your Image Class is:</h1><br>" + image_class
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host = "0.0.0.0", port=9898)
