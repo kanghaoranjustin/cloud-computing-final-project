@@ -1,9 +1,13 @@
 FROM python:3
 
-COPY . /image_classification_app
+WORKDIR /app
 
-WORKDIR /image_classification_app
+ADD . /app
 
-RUN make install
+RUN pip install --upgrade pip &&\
+    pip install --upgrade setuptools &&\
+	pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+
+EXPOSE 9898
 
 CMD ["python", "main.py"]
