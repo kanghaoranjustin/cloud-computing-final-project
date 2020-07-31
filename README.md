@@ -10,3 +10,5 @@ You will get a predicted class of your selected animal image along with its prob
 ## Get Docker Image
 docker pull hrjkang/img_classifier
 
+## APP available at
+https://imageclassifier-rptggbnmgq-uc.a.run.app
